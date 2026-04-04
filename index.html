@@ -437,9 +437,27 @@
             border-left: 2px dashed rgba(56, 189, 248, 0.4);
         }
 
+        .mobile-cover {
+            display: none;
+        }
+
         @media (max-width: 900px) {
-            .container { grid-template-columns: 1fr; }
+            .container { grid-template-columns: 1fr; gap: 20px; }
             .image-column { display: none; }
+            .mobile-cover {
+                display: block;
+                width: 100%;
+                max-width: 500px;
+                margin: 30px auto 10px;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                border: 1px solid var(--card-border);
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            .mobile-cover:active {
+                transform: scale(0.98);
+            }
         }
 
         @media (max-width: 768px) {
@@ -522,6 +540,7 @@
         <div>
             <h1>2026 熱海・箱根・伊豆 自駕之旅</h1>
             <p>享受無拘無束的四天三夜日本靜岡與神奈川海岸絕美公路旅行</p>
+            <img src="img/cover.png" class="mobile-cover" alt="熱海行程封面" onclick="openLightbox(this.src, '2026 熱海・箱根・伊豆 自駕之旅')">
         </div>
     </header>
 
@@ -535,11 +554,11 @@
         </div>
         <div class="image-column">
             <div class="sticky-image-viewer" id="image-viewer">
-                <div class="viewer-placeholder" id="viewer-placeholder">
+                <div class="viewer-placeholder" id="viewer-placeholder" style="display: none;">
                     <i class="fa-solid fa-image"></i>
                     <p>點擊左側行程預覽當地景色</p>
                 </div>
-                <img id="viewer-img" src="" alt="景點預覽">
+                <img id="viewer-img" class="loaded" src="img/cover.png" alt="2026 熱海・箱根・伊豆 自駕之旅" onclick="openLightbox(this.src, '2026 熱海・箱根・伊豆 自駕之旅')">
                 <div class="viewer-title" id="viewer-title"></div>
             </div>
         </div>
@@ -719,11 +738,17 @@
 
         // Image Viewer functionality
         function showImage(name, idx) {
+            // On mobile, bypass the hidden side column and open lightbox directly
+            if (window.innerWidth <= 900) {
+                openLightbox(`img/image_${idx}.jpg`, name);
+                return;
+            }
+            
             const placeholder = document.getElementById('viewer-placeholder');
             const img = document.getElementById('viewer-img');
             const title = document.getElementById('viewer-title');
             
-            placeholder.style.display = 'none';
+            if (placeholder) placeholder.style.display = 'none';
             img.classList.remove('loaded');
             title.classList.remove('show');
             
