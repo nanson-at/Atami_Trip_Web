@@ -437,27 +437,9 @@
             border-left: 2px dashed rgba(56, 189, 248, 0.4);
         }
 
-        .mobile-cover {
-            display: none;
-        }
-
         @media (max-width: 900px) {
-            .container { grid-template-columns: 1fr; gap: 20px; }
+            .container { grid-template-columns: 1fr; }
             .image-column { display: none; }
-            .mobile-cover {
-                display: block;
-                width: 100%;
-                max-width: 500px;
-                margin: 30px auto 10px;
-                border-radius: 15px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-                border: 1px solid var(--card-border);
-                cursor: pointer;
-                transition: transform 0.3s ease;
-            }
-            .mobile-cover:active {
-                transform: scale(0.98);
-            }
         }
 
         @media (max-width: 768px) {
@@ -540,7 +522,6 @@
         <div>
             <h1>2026 熱海・箱根・伊豆 自駕之旅</h1>
             <p>享受無拘無束的四天三夜日本靜岡與神奈川海岸絕美公路旅行</p>
-            <img src="img/cover.png" class="mobile-cover" alt="熱海行程封面" onclick="openLightbox(this.src, '2026 熱海・箱根・伊豆 自駕之旅')">
         </div>
     </header>
 
