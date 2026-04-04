@@ -12,13 +12,14 @@
     
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-1: #38bdf8;
-            --accent-2: #818cf8;
-            --card-bg: rgba(30, 41, 59, 0.4);
-            --card-border: rgba(255, 255, 255, 0.08);
+            /* Light Sakura Theme Variables */
+            --bg-color: #fdf2f8;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --accent-1: #f472b6;
+            --accent-2: #fb7185;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(244, 114, 182, 0.4);
         }
 
         * {
@@ -35,7 +36,6 @@
             line-height: 1.6;
         }
 
-        /* Fixed animated background */
         .bg-elements {
             position: fixed;
             top: 0;
@@ -44,8 +44,8 @@
             height: 100vh;
             z-index: -1;
             overflow: hidden;
-            background: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08), transparent 50%),
-                        radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08), transparent 50%);
+            background: radial-gradient(circle at 15% 50%, rgba(244, 114, 182, 0.1), transparent 50%),
+                        radial-gradient(circle at 85% 30%, rgba(251, 113, 133, 0.1), transparent 50%);
         }
         .orb {
             position: absolute;
@@ -90,13 +90,13 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=2070');
+            background-image: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&q=80&w=2076');
             background-size: cover;
             background-position: center;
-            opacity: 0.3;
+            opacity: 0.6;
             z-index: -1;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
         }
 
         .hero h1 {
@@ -104,10 +104,11 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, #fff, #a5b4fc);
+            background: linear-gradient(45deg, #be123c, #fb7185);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeUp 1s ease-out;
+            text-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
         }
 
         .hero p {
@@ -135,13 +136,13 @@
             gap: 15px;
             margin: -30px auto 40px auto;
             max-width: max-content;
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             padding: 10px 20px;
             border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(244, 114, 182, 0.3);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.15);
             animation: fadeUp 1s ease-out 0.4s backwards;
             flex-wrap: wrap;
         }
@@ -159,7 +160,7 @@
         .nav-btn:hover, .nav-btn.active {
             background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
             color: #fff;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4);
         }
 
         /* Itinerary Timeline & Image Layout */
@@ -180,13 +181,13 @@
             top: 100px;
             height: calc(100vh - 140px);
             min-height: 400px;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(255, 255, 255, 0.6);
             border: 1px solid var(--card-border);
             border-radius: 20px;
             overflow: hidden;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -232,13 +233,12 @@
             position: absolute;
             bottom: 0; left: 0; right: 0;
             padding: 40px 20px 20px;
-            background: linear-gradient(transparent, rgba(15, 23, 42, 0.95));
-            color: #fff;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+            color: var(--text-main);
             font-size: 1.5rem;
             font-weight: 600;
             transform: translateY(100%);
             transition: transform 0.4s ease;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
             text-align: center;
         }
 
@@ -254,7 +254,7 @@
             margin-bottom: 40px;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.1);
             transform: translateY(40px);
             opacity: 0;
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -266,8 +266,8 @@
         }
 
         .day-card:hover {
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3), 0 0 40px rgba(56, 189, 248, 0.1);
+            border-color: rgba(244, 114, 182, 0.6);
+            box-shadow: 0 25px 50px rgba(244, 114, 182, 0.15), 0 0 40px rgba(244, 114, 182, 0.2);
         }
 
         .day-header {
@@ -276,7 +276,7 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(244, 114, 182, 0.3);
         }
 
         .day-title {
@@ -321,7 +321,7 @@
             top: 20px;
             bottom: 20px;
             width: 2px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 100%);
+            background: linear-gradient(to bottom, var(--accent-1), rgba(244, 114, 182, 0.1));
         }
 
         .stop-item {
@@ -336,29 +336,30 @@
         }
 
         .stop-item:hover {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(244, 114, 182, 0.05);
             transform: translateX(10px);
         }
 
         .stop-icon {
             width: 42px;
             height: 42px;
-            background: #1e293b;
-            border: 2px solid var(--accent-2);
+            background: #fff;
+            border: 2px solid var(--accent-1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
             z-index: 2;
-            color: var(--text-main);
-            box-shadow: 0 0 15px rgba(129, 140, 248, 0.2);
+            color: var(--accent-1);
+            box-shadow: 0 0 15px rgba(244, 114, 182, 0.2);
             transition: transform 0.3s ease;
         }
 
         .stop-item:hover .stop-icon {
             transform: scale(1.1) rotate(5deg);
-            background: var(--accent-2);
+            background: var(--accent-1);
+            color: #fff;
         }
 
         .stop-content {
@@ -368,7 +369,7 @@
         .stop-name {
             font-size: 1.2rem;
             font-weight: 500;
-            color: #fff;
+            color: var(--text-main);
             margin-bottom: 4px;
         }
 
@@ -391,7 +392,7 @@
             display: inline-flex;
             align-items: center;
             font-size: 0.8rem;
-            color: #fce7f3;
+            color: #be123c;
             background: rgba(244, 114, 182, 0.15);
             border: 1px solid rgba(244, 114, 182, 0.3);
             padding: 2px 8px;
@@ -406,9 +407,9 @@
         }
 
         .copy-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(244, 114, 182, 0.1);
             border: none;
-            color: #fce7f3;
+            color: #be123c;
             cursor: pointer;
             margin-left: 8px;
             padding: 4px;
@@ -435,6 +436,31 @@
             padding: 10px 0 10px 30px;
             margin-left: 10px;
             border-left: 2px dashed rgba(56, 189, 248, 0.4);
+        }
+
+        .gmap-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            vertical-align: middle;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .gmap-btn img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .gmap-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 900px) {
@@ -644,7 +670,12 @@
             dayData.stops.forEach((stop, i) => {
                 const currentIdx = globalIndex++;
                 const tagHtml = stop.isTag ? `<span class="tag">${stop.isTag}</span>` : '';
-                const mapcodeHtml = stop.mapcode ? `<div class="mapcode"><i class="fa-solid fa-map-location-dot"></i> MAPCODE: <span style="margin-right: 2px; margin-left: 5px;">${stop.mapcode}</span><button class="copy-btn" onclick="copyMapCode('${stop.mapcode}', this)" title="複製 MAPCODE"><i class="fa-regular fa-copy"></i></button></div>` : '';
+                
+                // Construct Google Maps search URL
+                const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.name)}`;
+                const navBtnHtml = `<a href="${gmapsUrl}" target="_blank" class="gmap-btn" title="在 Google Maps 中定位" onclick="event.stopPropagation()"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" alt="Google Maps"></a>`;
+
+                const mapcodeHtml = stop.mapcode ? `<div class="mapcode"><i class="fa-solid fa-map-location-dot"></i> MAPCODE: <span style="margin-right: 2px; margin-left: 5px;">${stop.mapcode}</span><button class="copy-btn" onclick="copyMapCode('${stop.mapcode}', this, event)" title="複製 MAPCODE"><i class="fa-regular fa-copy"></i></button></div>` : '';
                 let driveHtml = '';
                 if (stop.driveNext) {
                     driveHtml = `<div class="drive-time"><i class="fa-solid fa-car"></i> 車程 ${stop.driveNext}</div>`;
@@ -655,7 +686,7 @@
                     <li class="stop-item" onclick="showImage('${safeName}', ${currentIdx})" title="點擊預覽 ${stop.name} 景色">
                         <div class="stop-icon"><i class="${stop.icon}"></i></div>
                         <div class="stop-content">
-                            <div class="stop-name">${stop.name} ${tagHtml}</div>
+                            <div class="stop-name">${stop.name} ${tagHtml} ${navBtnHtml}</div>
                             <div class="stop-desc">${stop.desc}</div>
                             ${mapcodeHtml}
                         </div>
@@ -700,7 +731,8 @@
         });
 
         // Copy MAPCODE functionality
-        function copyMapCode(text, btn) {
+        function copyMapCode(text, btn, e) {
+            if (e) e.stopPropagation();
             navigator.clipboard.writeText(text).then(() => {
                 const icon = btn.querySelector('i');
                 const originalClass = icon.className;
