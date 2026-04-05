@@ -31,6 +31,34 @@
             box-sizing: border-box;
         }
 
+        /* Language switcher */
+        .lang-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .lang-flag {
+            width: 24px;
+            height: auto;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .lang-flag:hover {
+            transform: scale(1.2);
+        }
+
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
         body {
             font-family: 'Outfit', 'Noto Sans TC', sans-serif;
             background-color: var(--bg-color);
@@ -597,9 +625,16 @@
     </div>
 
     <header class="hero">
+        <div class="lang-switcher">
+            <img src="https://flagcdn.com/16x12/cn.png" alt="中文" data-lang="zh" class="lang-flag" title="中文" />
+            <img src="https://flagcdn.com/16x12/jp.png" alt="日本語" data-lang="ja" class="lang-flag" title="日本語" />
+            <img src="https://flagcdn.com/16x12/gb.png" alt="English" data-lang="en" class="lang-flag"
+                title="English" />
+        </div>
         <div>
-            <h1>2026 熱海・箱根・伊豆 自駕之旅</h1>
-            <!--<p>享受無拘無束的四天三夜日本靜岡與神奈川海岸絕美公路旅行</p>-->
+            <h1 data-i18n="heroTitle">2026 熱海・箱根・伊豆 自駕之旅</h1>
+            <!--
+<p data-i18n="heroSubtitle">享受無拘無束的四天三夜日本靜岡與神奈川海岸絕美公路旅行</p>-->
         </div>
     </header>
 
@@ -859,6 +894,39 @@
                 }
             }, 300);
         }
+        // Language handling (embedded data to avoid CORS)
+        const langData = {
+            "zh": {
+                "heroTitle": "2026 熱海・箱根・伊豆 自駕之旅",
+                "heroSubtitle": "享受無拘無束的四天三夜日本靜岡與神奈川海岸絕美公路旅行"
+            },
+            "ja": {
+                "heroTitle": "2026 熱海・箱根・伊豆 ドライブ旅行",
+                "heroSubtitle": "静岡と神奈川の海岸を巡る、自由で美しい4日間のロードトリップをお楽しみください"
+            },
+            "en": {
+                "heroTitle": "2026 Atami, Hakone & Izu Self‑Drive 4‑Day Trip",
+                "heroSubtitle": "Enjoy a carefree 4‑day road trip along the stunning coasts of Shizuoka and Kanagawa"
+            }
+        };
+        // Set default language
+        setLanguage('zh');
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (langData[lang] && langData[lang][key]) {
+                    el.textContent = langData[lang][key];
+                }
+            });
+        }
+
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            flag.addEventListener('click', () => {
+                const lang = flag.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
     </script>
 </body>
 
